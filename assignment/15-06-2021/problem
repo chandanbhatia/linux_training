@@ -1,0 +1,18 @@
+1. Write a program to take input as a password but should display only x's instead of characters.
+2. Execute the line and find the output a = 2, b =1, x=(a++ && (!b) && b|| ++a);
+3. Program to find the sum of digits of a number until the sum is reduce to 1 digit.
+4. Execute the code in screenshot. Give the output
+
+
+int main()
+{
+	int x=10, y=3;
+	{
+		int x=100,z=10;
+		printf("%d%d", x, z);
+	
+	}
+	
+	printf("%d%d", x, z);
+
+}
