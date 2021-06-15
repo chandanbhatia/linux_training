@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <conio.h>
+
+#define PASSWORD_LENGTH 10
+int password[PASSWORD_LENGTH];
+int main() {
+    
+   printf("Enter Password: ");
+   for(int i=0; i<PASSWORD_LENGTH; i++){
+        password[i] = getch();
+        
+        printf("*");
+   }
+}
+
+/* Can't run the code as conio.h is not avilable in gcc */
