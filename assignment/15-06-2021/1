@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int getSingleDigitSum(int data){
+    int sum =0;
+    while(data){
+        sum= sum + (data %10);
+        data = data /10;
+    }
+    if(sum >9){
+        sum = getSingleDigitSum(sum);
+    }
+    return sum;
+}
+int main()
+{
+  int input;
+  printf("write input ");
+  scanf("%d", &input);
+  printf("single digit sum: %d\n",  getSingleDigitSum(input) );
+  return 0;
+}
