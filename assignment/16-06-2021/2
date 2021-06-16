@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+void recursion (int N){
+    if(N){
+        recursion(N-1);
+        printf("%d ", N);
+    }
+}
+    
+int main() {
+    int N;
+    printf("Enter value of N:\n");
+    scanf("%d",&N);
+    recursion(N);
+    return 0;
+}
