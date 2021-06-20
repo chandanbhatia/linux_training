@@ -3,8 +3,19 @@
 #define SQUARE(x) ((x)*(x))
 
 int main() {
-    // Write C code here
-    printf("add value is %d", SQUARE(2++));
-    
+    int number;
+    printf("Enter the number\n");
+    scanf("%d",&number);
+    printf("add value is %d \n", SQUARE(number++));
     return 0;
 }
+/**********************************
+Test Case 1:
+	Enter the number 4
+	add value is 20 
+	
+Test Case 1:
+	Enter the number 10
+	add value is 110
+
+**********************************/
