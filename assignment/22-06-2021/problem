@@ -1,0 +1,30 @@
+20-06-2021 assignment 
+
+1.Execute the C program and note down the outputs!
+
+    #include <stdio.h>
+
+    int main()
+    {
+        int arr[3][4] = {
+                      {10, 11, 12, 13},
+                      {20, 21, 22, 23},
+                      {30, 31, 32, 33}
+                      };
+        int i, j;
+
+        for(int i=0; i<3; i++){
+            printf("adddress of %dth array = %u %u\n", i, arr[i], *(arr+i));
+            for(int j=0; j<4; j++){
+                printf("%d ", arr[i][j]);
+                printf("%d ", *(*(arr+i)+j));
+                printf("%d ", (*(*arr+i)+j));
+
+            }
+            printf("\n");
+        }
+
+        return 0;
+    }
+
+2.Write a C program implementing  mem copy operation with void pointers
