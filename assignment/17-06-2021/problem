@@ -1,0 +1,4 @@
+1. Find out the details about moxa board ?
+2. How to print the current time, seconds, milliseconds, nanoseconds in linux ?
+3. Why inline funcion needs static storage class ?
+4. How the arguments passed or pushed to other function and how it assigns the value to arguments. Explain using diagram for below example
