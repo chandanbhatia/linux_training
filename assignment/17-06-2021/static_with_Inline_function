@@ -1,0 +1,1 @@
+The inline is only a compiler hint and the compiler is free to completely ignore it.So static instruct the compiler to compile inline function else we might face function not found errror.
