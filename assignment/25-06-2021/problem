@@ -1,3 +1,18 @@
 1.Conclude structure copy of C is shallow copy or deep copy?
 2.Draw the memorry layout for big & little endian and map the variables from the given program!
+  #include <stdio.h>
+
+  int main() {
+     union{
+      int x;
+      short sh;
+      char c[2];
+      char ch[4];
+     }var;
+
+     var.x=0x12345678;
+     printf("0x%x 0x%x 0x%x\n", var.sh, var.c[0], var.c[1]);
+     printf("0x%x 0x%x 0x%x 0x%x\n",  var.ch[0], var.ch[1], var.ch[2], var.ch[3]);
+      return 0;
+  }
 3.List out the applications of Union?
