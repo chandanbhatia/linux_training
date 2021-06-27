@@ -8,13 +8,16 @@ int main() {
 	/* Assigning 1st array memeber as Largest Number */
     int largestNumber =array[0], secondLargestNumber = 0;
     for(int i=1; i<ARRAY_SIZE; i++ ){
-        if( array[i] > largestNumber){
-            secondLargestNumber = largestNumber;
-            largestNumber = array[i];
-        }
-        else if(array[i] > secondLargestNumber){
-            secondLargestNumber = array[i];
-        }
+            if( array[i] > largestNumber){
+               {
+                    secondLargestNumber = largestNumber;
+                    largestNumber = array[i];
+                }
+            }
+            else if( (array[i] > secondLargestNumber)
+                && array[i] != largestNumber){
+                secondLargestNumber = array[i];
+            }
     }
     printf("Second Largest Number is: %d", secondLargestNumber);
 
