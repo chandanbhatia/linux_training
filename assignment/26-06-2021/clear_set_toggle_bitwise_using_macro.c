@@ -9,17 +9,20 @@
 int main() {
     unsigned int data = 0xff, position = 2;
     printf("input data  is 0x%x \n", data);
-    printf("post clear bit %d, data is 0x%x \n", position, clearBit(data, position));
+    clearBit(data, position);
+    printf("post clear bit %d, data is 0x%x \n", position, data);
     
     data = 0x80;
     position = 0;
     printf("input data  is 0x%x \n", data);
-    printf("post set bit %d, data is 0x%x \n", position, setBit(data, position));
+    setBit(data, position);
+    printf("post set bit %d, data is 0x%x \n", position, data);
     
     data = 0xff;
     position = 0;
     printf("input data  is 0x%x \n", data);
-    printf("post toggle bit %d, data is 0x%x \n", position, toggleBit(data, position));
+    toggleBit(data, position);
+    printf("post toggle bit %d, data is 0x%x \n", position, data);
      return 0;
 }
 
