@@ -7,7 +7,7 @@ void printArray(int arr[], int n){
     }
     printf("\n");
 }
-void memcpy_personal(void *const dest, void *const src, size_t n){
+void memcpy_personal(void *const dest, const void *const src, size_t n){
     char *p_dest = (char *)dest;
     char *p_src = (char *)src;
     while(n){
