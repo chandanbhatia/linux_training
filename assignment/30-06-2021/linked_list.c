@@ -1,3 +1,4 @@
+// Online C compiler to run C program online
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -44,6 +45,48 @@ bool insert_front(int data){
         head = new;
     }
     return true;
+}
+/* postion: Node data to be added before */
+bool insert_position(int data, int position){
+    node *new, *temp, *p, *prev;
+    new= (node *) malloc(sizeof(node));
+    if(new == NULL){
+        printf("Insert front failed for data %d position %d\n", data,position); 
+        return false;
+    }
+    if((head==NULL) && (tail==NULL)){
+        printf("Insert position failed as linked list is empty \n");
+        return false;
+    }
+   /* Checking if its head node*/
+    if(head->data ==position){
+        /* We found the data */
+        temp = head;
+        head = new;
+        new->next = temp;
+        new->data=data;
+        return true;
+    }else{
+        p = head->next;
+    }
+    while(p != NULL){
+        if(p->data ==position){
+            prev->next=new;
+            new->next=p;
+            new->data=data;
+            break;
+        }else{
+            prev = p;
+            p = p->next;
+        }
+    }
+    if(p == NULL){
+        /* we didn't find the node */
+        printf("Insert position Failed for position %d\n", position);
+        free(new);
+        return false;
+    }
+     return true;
 }
 
 /* postion: Node data to be replaced */
@@ -98,6 +141,7 @@ void print_node(void){
 }
 int main() {
     // Write C code here
+    insert_position(20, 30);
     insert_end(4);
     insert_end(20);
     insert_end(23);
@@ -116,6 +160,17 @@ int main() {
     print_node();
     insert_end(300);
     print_node();
-    
+    delete_node(300);
+    print_node();
+    delete_node(23);
+    print_node();
+    insert_position(20, 56);
+    print_node();
+    insert_position(62, 79);
+    print_node();
+    insert_position(92, 101);
+    print_node();
+    delete_node(92);
+    print_node();
     return 0;
 }
