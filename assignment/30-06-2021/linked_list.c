@@ -1,4 +1,3 @@
-// Online C compiler to run C program online
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -137,13 +136,44 @@ void print_reverse(node *hNode){
 }
 
 void print_node(void){
-    node *p=head;
+   node *p=head;
     while(p!=NULL){
         printf("%d ",p->data);
         p = p->next;
     }
     printf("\n");
+   
+}
+void middle_node(void){
+    node *p_slow=head;
+    node *p_fast=head;
     
+    if(!head){
+        printf("Empty Linked List");
+    }else{
+        while( (p_fast!=NULL) && (p_fast->next != NULL)){
+            p_fast = p_fast->next->next;
+            p_slow = p_slow->next;
+        }
+       printf("Middle node is %d\n", p_slow->data);
+    }
+}
+
+void one_fourth_node(void){
+    node *p_slow=head;
+    node *p_fast=head;
+    
+    if(!head){
+        printf("Empty Linked List");
+    }else{
+        while( (p_fast!=NULL) && (p_fast->next != NULL)
+         && (p_fast->next->next != NULL)
+         && (p_fast->next->next->next != NULL)){
+            p_fast = p_fast->next->next->next->next;
+            p_slow = p_slow->next;
+        }
+       printf("One fourth node is %d\n", p_slow->data);
+    } 
 }
 int main() {
     // Write C code here
@@ -179,7 +209,37 @@ int main() {
     delete_node(92);
     print_node();
     
-   // print_reverse(head);
+    for(int i=0; i<27;i++){
+        insert_end(100+(33*i));
+    }
+    print_node();
+    middle_node();
+    one_fourth_node();
+    printf("Print Reverse\n");
+    print_reverse(head);
     
     return 0;
 }
+
+/***************************************************************************************************
+Insert position failed as linked list is empty 
+4 20 23 56 79 101 234 
+20 23 56 79 101 234 
+23 56 79 101 234 
+Delete Failed for position 2
+23 56 79 101 234 
+23 56 79 101 
+23 56 79 101 300 
+23 56 79 101 
+56 79 101 
+20 56 79 101 
+20 56 62 79 101 
+20 56 62 79 92 101 
+20 56 62 79 101 
+20 56 62 79 101 100 133 166 199 232 265 298 331 364 397 430 463 496 529 562 595 628 661 694 727 760 793 826 859 892 925 958 
+Middle node is 463
+One fourth node is 199
+Print Reverse
+958 925 892 859 826 793 760 727 694 661 628 595 562 529 496 463 430 397 364 331 298 265 232 199 166 133 100 101 79 62 56 20 
+
+***************************************************************************************************/
