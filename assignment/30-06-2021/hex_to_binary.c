@@ -2,12 +2,12 @@
 
 void convertToBinary(unsigned int number){
     if(number){
-        convertToBinary(number/2);
-       printf("%d ",number %2 );
+        convertToBinary(number>>1);
+        printf("%d ",number %2 );
     }
 }
 int main() {
-    unsigned int number = 0x982;
+    unsigned int number = 0x0E;
     printf("Hex number is 0x%x \n",number);
     convertToBinary(number);
     
