@@ -48,7 +48,7 @@ bool insert_front(int data){
 }
 /* postion: Node data to be added before */
 bool insert_position(int data, int position){
-    node *new, *temp, *p, *prev;
+    node *new, *temp, *p;
     new= (node *) malloc(sizeof(node));
     if(new == NULL){
         printf("Insert front failed for data %d position %d\n", data,position); 
@@ -69,14 +69,13 @@ bool insert_position(int data, int position){
     }else{
         p = head->next;
     }
-    while(p != NULL){
-        if(p->data ==position){
-            prev->next=new;
-            new->next=p;
+    while(p->next != NULL){
+        if(p->next->data ==position){
+            new->next=p->next;
+            p->next=new;
             new->data=data;
             break;
         }else{
-            prev = p;
             p = p->next;
         }
     }
@@ -91,7 +90,8 @@ bool insert_position(int data, int position){
 
 /* postion: Node data to be replaced */
 bool delete_node(int position){
-    node *p=head, *temp, *prev=head;
+    node *p=head, *temp;
+    bool found = false;
     if((head==NULL) && (tail==NULL)){
         printf("Delete Failed for position %d\n", position);
         return false;
@@ -103,31 +103,37 @@ bool delete_node(int position){
         head = head->next;
         free(temp);
         return true;
-    }else{
-        p = head->next;
     }
-    while(p != NULL){
-        if(p->data ==position){
+    
+    while(p->next != NULL){
+        if(p->next->data ==position){
             /* We found the data */
-            if(p->next == NULL){
+            if(p->next->next == NULL){
                 // means its tail node
-                tail = prev;
+                tail = p;
             }
-            temp = p;
-            prev->next= p->next;
+            temp = p->next;
+            p->next= p->next->next;
             free(temp);
+            found = true;
             break;
         }else{
-            prev = p;
             p = p->next;
         }
     }
-    if(p == NULL){
+    if(!found){
         /* we didn't find the node */
         printf("Delete Failed for position %d\n", position);
         return false;
     }
      return true;
+}
+
+void print_reverse(node *hNode){
+    if(hNode->next!=NULL){
+        print_reverse(hNode->next);
+    }
+    printf("%d ",hNode->data);
 }
 
 void print_node(void){
@@ -172,5 +178,8 @@ int main() {
     print_node();
     delete_node(92);
     print_node();
+    
+   // print_reverse(head);
+    
     return 0;
 }
